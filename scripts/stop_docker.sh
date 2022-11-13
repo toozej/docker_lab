@@ -12,7 +12,7 @@ for DIR in `find /home/${USERNAME}/docker/ -mindepth 1 -maxdepth 1 -type d`; do
 	echo "working on: ${DIR}"
 
 	# shutdown running docker container
-	/usr/local/bin/docker-compose -f ${DIR}/docker-compose.yml down --remove-orphans
+	/usr/bin/docker compose -f ${DIR}/docker-compose.yml down --remove-orphans
 	if [ $? -ne 0 ]; then
 		FAILED="${FAILED} shutting down ${DIR} docker container failed on ${_NOW}\n"
 		# skip to next ${DIR}
